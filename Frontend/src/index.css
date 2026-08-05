@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   AgriSense AI — Government style design tokens
+   Light (default) + High Contrast theme, driven by CSS variables so a
+   single class on <html> switches the whole portal.
+------------------------------------------------------------------ */
+:root {
+  --c-page: #ffffff;
+  --c-surface: #f3f6f2;
+  --c-surface-2: #e8eee6;
+  --c-ink: #1b1b1b;
+  --c-ink-soft: #43514a;
+  --c-line: #c3cdc2;
+  --c-line-strong: #8ea08c;
+  --c-brand: #14532d;
+  --c-brand-dark: #0d3b20;
+  --c-brand-soft: #e7f0e8;
+  --c-accent: #b45309;
+  --c-link: #0b4f9e;
+  --c-ok: #146c43;
+  --c-ok-bg: #e6f4ea;
+  --c-warn: #8a5300;
+  --c-warn-bg: #fff3d6;
+  --c-bad: #a91b0d;
+  --c-bad-bg: #fdeceb;
+  --c-header: #ffffff;
+  --c-strip: #1d2c22;
+
+  --base-font: 16px;
+}
+
+:root.hc {
+  --c-page: #000000;
+  --c-surface: #000000;
+  --c-surface-2: #101010;
+  --c-ink: #ffffff;
+  --c-ink-soft: #f2f2f2;
+  --c-line: #ffd400;
+  --c-line-strong: #ffd400;
+  --c-brand: #000000;
+  --c-brand-dark: #000000;
+  --c-brand-soft: #101010;
+  --c-accent: #ffd400;
+  --c-link: #ffd400;
+  --c-ok: #4ee08a;
+  --c-ok-bg: #001a0d;
+  --c-warn: #ffd400;
+  --c-warn-bg: #1a1400;
+  --c-bad: #ff7a6b;
+  --c-bad-bg: #1a0400;
+  --c-header: #000000;
+  --c-strip: #000000;
+}
+
+@theme {
+  --color-page: var(--c-page);
+  --color-surface: var(--c-surface);
+  --color-surface2: var(--c-surface-2);
+  --color-ink: var(--c-ink);
+  --color-inksoft: var(--c-ink-soft);
+  --color-line: var(--c-line);
+  --color-linestrong: var(--c-line-strong);
+  --color-brand: var(--c-brand);
+  --color-branddark: var(--c-brand-dark);
+  --color-brandsoft: var(--c-brand-soft);
+  --color-accent: var(--c-accent);
+  --color-link: var(--c-link);
+  --color-ok: var(--c-ok);
+  --color-okbg: var(--c-ok-bg);
+  --color-warn: var(--c-warn);
+  --color-warnbg: var(--c-warn-bg);
+  --color-bad: var(--c-bad);
+  --color-badbg: var(--c-bad-bg);
+  --color-strip: var(--c-strip);
+
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans",
+    "Noto Sans Devanagari", Arial, sans-serif;
+}
+
+html {
+  font-size: var(--base-font);
+  scroll-behavior: smooth;
+  scroll-padding-top: 7.5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* In high contrast mode brand green would disappear on a black page,
+   so brand text and outlines become yellow while surfaces stay black. */
+:root.hc .text-brand,
+:root.hc .text-branddark {
+  color: #ffd400 !important;
+}
+
+:root.hc .border-brand,
+:root.hc .border-l-brand,
+:root.hc .border-b-brand {
+  border-color: #ffd400 !important;
+}
+
+:root.hc .bg-brand {
+  background-color: #000000 !important;
+  border-color: #ffd400 !important;
+}
+
+:root.hc .hover\:bg-branddark:hover,
+:root.hc .hover\:bg-brandsoft:hover {
+  background-color: #262600 !important;
+}
+
+:root.hc .bg-accent {
+  background-color: #ffd400 !important;
+  color: #000000 !important;
+}
+
+:root.hc .border-dashed {
+  border-style: solid !important;
+}
+
+body {
+  background-color: var(--c-page);
+  color: var(--c-ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans",
+    "Noto Sans Devanagari", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Clear, always-visible keyboard focus for low-vision / keyboard users */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--c-accent);
+  outline-offset: 2px;
+}
+
+:root.hc a:focus-visible,
+:root.hc button:focus-visible,
+:root.hc input:focus-visible,
+:root.hc select:focus-visible,
+:root.hc textarea:focus-visible {
+  outline: 3px solid #ffd400;
+}
+
+:root.hc img {
+  filter: grayscale(1) contrast(1.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .fade-in {
+    animation: none !important;
+  }
+}
+
+/* The only animation used on the portal */
+.fade-in {
+  animation: agri-fade 0.4s ease-out both;
+}
+
+@keyframes agri-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Print friendly (farmers / officers often print advisories) */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

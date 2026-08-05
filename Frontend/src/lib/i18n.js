@@ -147,12 +147,12 @@ const en = {
     teamTitle: "Our Team",
     teamSub: "The people building AgriNova.",
     team: [
-      { name: "Dr. A. Sharma", role: "Project Director" },
-      { name: "S. Verma", role: "AI / ML Lead" },
-      { name: "R. Patel", role: "IoT & Sensor Engineer" },
-      { name: "Dr. M. Kaur", role: "Agronomist" },
-      { name: "V. Nair", role: "Mobile App Developer" },
-      { name: "K. Das", role: "Data Analyst" },
+      { name: "Paras"},
+      { name: "Rudra"},
+      { name: "Manav"},
+      { name: "Abhyudai"},
+      { name: "Jasleen" },
+      { name: "Kanik" },
     ],
     whoTitle: "Who can use it?",
     who: [

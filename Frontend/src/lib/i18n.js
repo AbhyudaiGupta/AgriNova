@@ -1,5 +1,5 @@
 /**
- * AgriSense AI — bilingual content (English / हिंदी)
+ * AgriNova — bilingual content (English / हिंदी)
  * All user facing text lives here so the whole portal can switch language
  * instantly, without any network request.
  */
@@ -22,9 +22,9 @@ const en = {
     language: "Language",
   },
   brand: {
-    name: "AgriSense AI",
-    short: "AgriSense AI",
-    sub: "Smart Farming Support System",
+    name: "AgriNova",
+    short: "AgriNova",
+    sub: "AI Powered Smart Agriculture Platform",
     pilot: "Pilot Demo",
     emblemAlt: "National emblem of India",
   },
@@ -42,10 +42,10 @@ const en = {
   },
   hero: {
     badge: "Government supported pilot project",
-    title: "AgriSense AI",
-    tagline: "Smart Farming Support System for Indian Farmers",
+    title: "AgriNova",
+    tagline: "AgriNova – AI Powered Smart Agriculture Platform",
     intro:
-      "AgriSense AI is a simple digital service that helps farmers take better decisions in the field. It works on small mobile phones and slow internet.",
+      "AgriNova is a simple digital service that helps farmers take better decisions in the field. It works on small mobile phones and slow internet.",
     points: [
       "Helps farmers improve crop production",
       "Gives irrigation advice — when and how much water to give",
@@ -54,45 +54,64 @@ const en = {
     ],
     ctaServices: "View Services",
     ctaDashboard: "Open Dashboard",
-    imageAlt:
-      "Indian farmer standing in a green wheat field during morning hours",
+    imageAlt: "Indian farmer standing in a green wheat field during morning hours",
     imageCaption: "Field data collected by village level IoT soil sensors.",
     helplineLabel: "Kisan Call Centre (toll free)",
     helpline: "1800-180-1551",
   },
-  notices: {
-    title: "Latest Updates",
-    tag: "New",
-    items: [
-      "Kharif 2026 advisory for wheat and paddy is now available in Hindi.",
-      "Soil health card data can now be linked with your AgriSense AI account.",
-      "Village level pilot started in 12 districts of 6 states.",
-      "Free disease detection camp at Krishi Vigyan Kendra every Monday.",
+  home: {
+    overviewHeading: "Quick Overview",
+    overviewText:
+      "AgriNova uses Artificial Intelligence (AI) and small field sensors (IoT) to give Indian farmers simple, timely advice on irrigation, crop choice, fertilizer, disease, weather and yield — in their own language, on basic phones and slow internet. No technical knowledge is needed.",
+    servicesHeading: "Key Services",
+    servicesSub: "Top 4 services farmers use the most. Explore all eight services on the Services page.",
+    seeAll: "View All Services",
+    statsHeading: "Pilot at a Glance",
+    stats: [
+      { value: "12", label: "Districts covered" },
+      { value: "480", label: "Villages connected" },
+      { value: "26,500", label: "Registered farmers" },
+      { value: "1,120", label: "Field sensors installed" },
     ],
+    ctaHeading: "Ready to get started?",
+    ctaText:
+      "Open the live dashboard to see your field readings, or talk to our team if you need help.",
+    ctaServices: "View Services",
+    ctaDashboard: "Open Dashboard",
+    ctaContact: "Contact Us",
   },
   about: {
-    heading: "About AgriSense AI",
-    whatTitle: "What is AgriSense AI?",
+    heading: "About AgriNova",
+    whatTitle: "About AgriNova",
     whatText:
-      "AgriSense AI is a government supported digital system that helps farmers make better farming decisions using Artificial Intelligence (AI) and small field sensors (IoT). Sensors placed in the field read soil and weather conditions. The system studies this data and gives simple advice in your own language.",
+      "AgriNova is a government supported digital system that helps farmers make better farming decisions using Artificial Intelligence (AI) and small field sensors (IoT). Sensors placed in the field read soil and weather conditions. The system studies this data and gives simple advice in your own language.",
     whatText2:
       "No technical knowledge is needed. Advice is shown in short sentences, with clear colours — green means safe, yellow means be careful, red means act today.",
-    whoTitle: "Who can use it?",
-    who: [
-      {
-        title: "Farmers",
-        text: "To get daily advice on water, fertilizer, crop and weather.",
-      },
-      {
-        title: "Agriculture Officers",
-        text: "To monitor village and block level field data.",
-      },
-      {
-        title: "Village Level Workers",
-        text: "To help farmers who cannot read or use a smartphone.",
-      },
+    visionTitle: "Our Vision",
+    visionText:
+      "To empower every Indian farmer with accurate, simple and affordable AI based advice, so that farming becomes more profitable and sustainable.",
+    missionTitle: "Our Mission",
+    missionText:
+      "To build a low-cost, easy-to-use system using AI and IoT that works in every village on basic mobile phones and in the farmer's own language.",
+    objectivesTitle: "Our Objectives",
+    objectives: [
+      "Provide daily irrigation advice",
+      "Suggest the best crop and fertilizer",
+      "Detect crop diseases early",
+      "Forecast weather and crop yield",
+      "Reduce water usage and input cost",
     ],
-    benefitsTitle: "Benefits",
+    whyTitle: "Why AI in Agriculture?",
+    whyText:
+      "Farming produces a large amount of soil, weather and crop data. AI reads this data quickly and gives the farmer the right advice at the right time, which is difficult to do by hand.",
+    whyPoints: [
+      "Processes large soil and weather data quickly",
+      "Gives accurate, area-specific advice",
+      "Detects disease early using photos",
+      "Saves water and reduces cost",
+      "Reaches more farmers with less manpower",
+    ],
+    benefitsTitle: "Benefits to Farmers",
     benefits: [
       "Better crop yield",
       "Less water usage",
@@ -101,22 +120,55 @@ const en = {
       "Weather based planning",
       "Lower farming cost",
     ],
-    statsTitle: "Pilot at a glance",
-    stats: [
-      { value: "12", label: "Districts covered" },
-      { value: "480", label: "Villages connected" },
-      { value: "26,500", label: "Registered farmers" },
-      { value: "1,120", label: "Field sensors installed" },
+    architectureTitle: "Project Architecture",
+    architectureSub: "How AgriNova works — from the field to the farmer.",
+    architecture: [
+      {
+        title: "Field IoT Sensors",
+        text: "Soil moisture, temperature and NPK sensors installed in the field.",
+      },
+      {
+        title: "Connectivity",
+        text: "Data is sent through GSM/4G mobile network or village Wi-Fi.",
+      },
+      {
+        title: "AI Engine",
+        text: "Cloud based models for irrigation, crop, disease and weather.",
+      },
+      {
+        title: "Advisory System",
+        text: "Converts AI results into simple Hindi and English advice.",
+      },
+      {
+        title: "Farmer Interface",
+        text: "Mobile app, SMS, USSD and a light web portal.",
+      },
+    ],
+    teamTitle: "Our Team",
+    teamSub: "The people building AgriNova.",
+    team: [
+      { name: "Dr. A. Sharma", role: "Project Director" },
+      { name: "S. Verma", role: "AI / ML Lead" },
+      { name: "R. Patel", role: "IoT & Sensor Engineer" },
+      { name: "Dr. M. Kaur", role: "Agronomist" },
+      { name: "V. Nair", role: "Mobile App Developer" },
+      { name: "K. Das", role: "Data Analyst" },
+    ],
+    whoTitle: "Who can use it?",
+    who: [
+      { title: "Farmers", text: "To get daily advice on water, fertilizer, crop and weather." },
+      { title: "Agriculture Officers", text: "To monitor village and block level field data." },
+      { title: "Village Level Workers", text: "To help farmers who cannot read or use a smartphone." },
     ],
   },
   services: {
     heading: "Our Services",
-    sub: "Seven simple services. Choose any service to know more.",
-    open: "Know more",
+    sub: "Eight AI powered services. Choose any service to know more.",
+    open: "Learn More",
     availability: "Available in English and Hindi",
     items: {
       irrigation: {
-        title: "Smart Irrigation Advisory",
+        title: "Smart Irrigation",
         text: "Tells you when to irrigate and how much water is needed.",
         detail:
           "Uses soil moisture, temperature and rain forecast to decide the correct watering time. Saves water and electricity.",
@@ -128,7 +180,7 @@ const en = {
           "Considers soil type, N-P-K values, pH and season to suggest crops that give good returns in your area.",
       },
       fertilizer: {
-        title: "Fertilizer Guidance",
+        title: "Fertilizer Recommendation",
         text: "Recommends the correct fertilizer and correct quantity.",
         detail:
           "Prevents over use of urea and other fertilizers. Shows dose per acre in simple words.",
@@ -140,7 +192,7 @@ const en = {
           "Take a photo of the affected leaf. The system names the disease and suggests low cost treatment.",
       },
       weather: {
-        title: "Weather Information",
+        title: "Weather Monitoring",
         text: "Shows local weather, rainfall and temperature updates.",
         detail:
           "Block level forecast for the next 5 days, with warnings for heavy rain, hailstorm and heat wave.",
@@ -151,23 +203,28 @@ const en = {
         detail:
           "Helps in planning storage, transport and sale of produce before harvest time.",
       },
-      helpdesk: {
-        title: "Farmer Help Desk",
+      chatbot: {
+        title: "AI Chatbot",
         text: "A simple AI assistant for your farming questions.",
         detail:
           "Ask a question by typing or by voice. Answers are given in simple Hindi or English.",
       },
+      water: {
+        title: "Water Usage Analytics",
+        text: "Monitors water use and helps you save it.",
+        detail:
+          "Shows how much water was used for irrigation, where saving is possible, and the water tank level.",
+      },
     },
   },
   dashboard: {
-    heading: "Farm Dashboard",
+    heading: "IoT Farm Dashboard",
     sub: "Live readings from the sensors installed in your field.",
     stateLabel: "State",
     districtLabel: "District",
     villageLabel: "Village",
     updated: "Last updated",
     refresh: "Refresh data",
-    refreshing: "Refreshing…",
     legend: "Colour meaning",
     legendOk: "Green — Good",
     legendWarn: "Yellow — Warning",
@@ -175,6 +232,10 @@ const en = {
     pumpOn: "Turn pump ON",
     pumpOff: "Turn pump OFF",
     pumpNote: "Pump can also be operated by SMS: send PUMP ON to 51969.",
+    tankLabel: "Water Tank Level",
+    trendTitle: "Soil Moisture Trend (7 days)",
+    npkTitle: "N-P-K Comparison",
+    trendDays: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
     sensors: {
       moisture: { label: "Soil Moisture", note: "Below required level" },
       temperature: { label: "Temperature", note: "Normal for the season" },
@@ -185,6 +246,7 @@ const en = {
       potassium: { label: "Potassium (K)", note: "Sufficient" },
       rain: { label: "Rain Forecast", note: "Rain expected in 6 hours" },
       pump: { label: "Pump Status", note: "Motor is not running" },
+      tank: { label: "Water Tank Level", note: "Level is low — refill before irrigation" },
     },
     status: {
       ok: "Good",
@@ -192,57 +254,60 @@ const en = {
       bad: "Needs action",
       on: "ON",
       off: "OFF",
+      full: "Full",
+      low: "Low",
     },
   },
   alerts: {
-    heading: "Alerts & Recommendations",
-    sub: "Read the list from top to bottom. Red items need action today.",
+    heading: "AI Recommendations & Alerts",
+    sub: "Read the list from top to bottom. Critical items need action today.",
     filterAll: "All",
-    filterBad: "Needs action",
-    filterWarn: "Warning",
-    filterOk: "Good",
+    filterCritical: "Critical",
+    filterWarning: "Warning",
+    filterInfo: "Information",
     action: "What to do",
     time: "Received",
+    priority: "Priority",
     none: "No alerts in this category.",
     printBtn: "Print this list",
     items: {
+      nitrogen: {
+        title: "Nitrogen deficiency detected in soil",
+        action: "Apply 20 kg urea per acre after the next irrigation. Do not apply on dry soil.",
+      },
+      tank: {
+        title: "Water tank level is low",
+        action: "Refill the water tank before the next irrigation cycle.",
+      },
       irrigation: {
         title: "Irrigation needed tomorrow morning",
-        action:
-          "Give water to the wheat field between 6 AM and 8 AM. About 25 mm water is enough.",
+        action: "Give water to the wheat field between 6 AM and 8 AM. About 25 mm is enough.",
       },
-      nitrogen: {
-        title: "Nitrogen level is low in your soil",
-        action:
-          "Apply 20 kg urea per acre after the next irrigation. Do not apply on dry soil.",
+      pest: {
+        title: "Pest risk is moderate in wheat",
+        action: "Inspect the field daily. If needed, apply pesticide as per advisory.",
       },
       rain: {
         title: "Rain expected in the next 6 hours",
-        action:
-          "Do not spray pesticide today. Keep harvested produce under cover.",
-      },
-      crop: {
-        title: "Wheat crop is suitable for this soil",
-        action:
-          "Sow HD-2967 or HD-3086 variety. Both suit this soil and weather.",
+        action: "Do not spray pesticide today. Keep harvested produce under cover.",
       },
       fertilizer: {
         title: "Apply fertilizer after irrigation",
         action: "Fertilizer works better on wet soil. Wait 24 hours after water.",
       },
-      disease: {
-        title: "Yellow rust risk in wheat is increasing",
-        action:
-          "Check leaves every morning. If yellow powder is seen, contact the Krishi Vigyan Kendra.",
-      },
     },
     timeAgo: {
-      irrigation: "Today, 6:10 AM",
       nitrogen: "Today, 5:45 AM",
+      tank: "Today, 7:35 AM",
+      irrigation: "Today, 6:10 AM",
+      pest: "Today, 8:05 AM",
       rain: "Today, 7:20 AM",
-      crop: "Yesterday, 4:30 PM",
       fertilizer: "Yesterday, 11:15 AM",
-      disease: "Today, 7:35 AM",
+    },
+    priorities: {
+      critical: "Critical",
+      warning: "Warning",
+      info: "Information",
     },
   },
   contact: {
@@ -275,23 +340,49 @@ const en = {
     another: "Send another message",
     officeTitle: "Office Address",
     office: [
-      "AgriSense AI Project Cell",
+      "AgriNova Project Cell",
       "Krishi Bhawan, Dr. Rajendra Prasad Road",
       "New Delhi – 110001, India",
     ],
     emailTitle: "Official Email",
-    officialEmail: "support-agrisense[at]gov[dot]in",
+    officialEmail: "support-agrinova[at]gov[dot]in",
     phoneTitle: "Helpline",
     phone: "1800-180-1551 (Toll Free)",
     hoursTitle: "Working Hours",
     hours: "Monday to Saturday, 9:30 AM – 6:00 PM",
+    mapsTitle: "Locate Us",
+    mapsText: "Krishi Bhawan, New Delhi (Government office placeholder map).",
+    faqTitle: "Frequently Asked Questions",
+    faqSub: "Simple answers to common questions.",
+    faqs: [
+      {
+        q: "Do I have to pay to use AgriNova?",
+        a: "No. The pilot system is free of cost and is run with government support.",
+      },
+      {
+        q: "Will it work on a basic mobile phone?",
+        a: "Yes. It works through SMS, USSD and a light mobile app on any phone.",
+      },
+      {
+        q: "In which language is the advice available?",
+        a: "Advice is available in both English and Hindi.",
+      },
+      {
+        q: "How do I get the sensors?",
+        a: "Sensors are installed free in pilot villages. Contact your block agriculture officer.",
+      },
+      {
+        q: "When will my village be covered?",
+        a: "The roll-out schedule will be shared by your village level office.",
+      },
+    ],
   },
   help: {
     button: "Help",
     title: "How to use this portal",
     steps: [
       "Choose your language at the top: English or हिंदी.",
-      "Use the big buttons in the menu to move between sections.",
+      "Use the big buttons in the menu to move between pages.",
       "Open Dashboard to see soil, water and weather readings of your field.",
       "Open Alerts to see what to do today. Red means act today.",
       "If you need a person to help you, call the toll free number below.",
@@ -305,7 +396,7 @@ const en = {
     ministry: "Ministry of Agriculture & Farmers Welfare",
     govt: "Government of India",
     owned:
-      "Content owned and maintained by the AgriSense AI Project Cell, Ministry of Agriculture & Farmers Welfare, Government of India.",
+      "Content owned and maintained by the AgriNova Project Cell, Ministry of Agriculture & Farmers Welfare, Government of India.",
     disclaimer:
       "Disclaimer: This portal is a Smart India Hackathon pilot demonstration. Data shown is sample data and not an official Government record.",
     linksTitle: "Important Links",
@@ -343,9 +434,9 @@ const hi = {
     language: "भाषा",
   },
   brand: {
-    name: "एग्रीसेंस एआई",
-    short: "एग्रीसेंस एआई",
-    sub: "स्मार्ट कृषि सहायता प्रणाली",
+    name: "एग्रीनोवा",
+    short: "एग्रीनोवा",
+    sub: "एआई संचालित स्मार्ट कृषि मंच",
     pilot: "पायलट डेमो",
     emblemAlt: "भारत का राष्ट्रीय प्रतीक",
   },
@@ -363,10 +454,10 @@ const hi = {
   },
   hero: {
     badge: "सरकार समर्थित पायलट परियोजना",
-    title: "एग्रीसेंस एआई",
-    tagline: "भारतीय किसानों के लिए स्मार्ट कृषि सहायता प्रणाली",
+    title: "एग्रीनोवा",
+    tagline: "एग्रीनोवा – एआई संचालित स्मार्ट कृषि मंच",
     intro:
-      "एग्रीसेंस एआई एक सरल डिजिटल सेवा है जो किसानों को खेत में सही निर्णय लेने में मदद करती है। यह छोटे मोबाइल फोन और धीमे इंटरनेट पर भी चलती है।",
+      "एग्रीनोवा एक सरल डिजिटल सेवा है जो किसानों को खेत में सही निर्णय लेने में मदद करती है। यह छोटे मोबाइल फोन और धीमे इंटरनेट पर भी चलती है।",
     points: [
       "फसल का उत्पादन बढ़ाने में मदद करता है",
       "सिंचाई की सलाह देता है — कब और कितना पानी देना है",
@@ -380,39 +471,59 @@ const hi = {
     helplineLabel: "किसान कॉल सेंटर (निःशुल्क)",
     helpline: "1800-180-1551",
   },
-  notices: {
-    title: "नवीनतम सूचनाएँ",
-    tag: "नया",
-    items: [
-      "खरीफ 2026 के लिए गेहूँ और धान की सलाह अब हिंदी में उपलब्ध है।",
-      "मृदा स्वास्थ्य कार्ड का डेटा अब आपके एग्रीसेंस खाते से जोड़ा जा सकता है।",
-      "6 राज्यों के 12 जिलों में गाँव स्तर पर पायलट शुरू हुआ।",
-      "कृषि विज्ञान केंद्र में हर सोमवार निःशुल्क रोग पहचान शिविर।",
+  home: {
+    overviewHeading: "त्वरित परिचय",
+    overviewText:
+      "एग्रीनोवा कृत्रिम बुद्धिमत्ता (एआई) और खेत में लगे छोटे सेंसर (आईओटी) से भारतीय किसानों को सिंचाई, फसल, खाद, रोग, मौसम और उपज पर सरल और समय पर सलाह देता है — उनकी अपनी भाषा में, सामान्य फोन और धीमे इंटरनेट पर। किसी तकनीकी जानकारी की आवश्यकता नहीं है।",
+    servicesHeading: "मुख्य सेवाएँ",
+    servicesSub: "किसानों द्वारा सबसे अधिक उपयोग की जाने वाली 4 सेवाएँ। सभी आठ सेवाओं के लिए सेवाएँ पृष्ठ देखें।",
+    seeAll: "सभी सेवाएँ देखें",
+    statsHeading: "पायलट एक नज़र में",
+    stats: [
+      { value: "12", label: "जिले शामिल" },
+      { value: "480", label: "गाँव जुड़े" },
+      { value: "26,500", label: "पंजीकृत किसान" },
+      { value: "1,120", label: "खेत सेंसर लगे" },
     ],
+    ctaHeading: "शुरू करने के लिए तैयार हैं?",
+    ctaText:
+      "अपने खेत की जानकारी देखने के लिए लाइव डैशबोर्ड खोलें, या सहायता के लिए हमारी टीम से बात करें।",
+    ctaServices: "सेवाएँ देखें",
+    ctaDashboard: "डैशबोर्ड खोलें",
+    ctaContact: "संपर्क करें",
   },
   about: {
-    heading: "एग्रीसेंस एआई के बारे में",
-    whatTitle: "एग्रीसेंस एआई क्या है?",
+    heading: "एग्रीनोवा के बारे में",
+    whatTitle: "एग्रीनोवा क्या है?",
     whatText:
-      "एग्रीसेंस एआई एक सरकार समर्थित डिजिटल प्रणाली है जो कृत्रिम बुद्धिमत्ता (एआई) और खेत में लगे छोटे सेंसर (आईओटी) की सहायता से किसानों को बेहतर निर्णय लेने में मदद करती है। खेत में लगे सेंसर मिट्टी और मौसम की जानकारी लेते हैं। प्रणाली इस जानकारी को समझकर आपकी भाषा में सरल सलाह देती है।",
+      "एग्रीनोवा एक सरकार समर्थित डिजिटल प्रणाली है जो कृत्रिम बुद्धिमत्ता (एआई) और खेत में लगे छोटे सेंसर (आईओटी) की सहायता से किसानों को बेहतर निर्णय लेने में मदद करती है। खेत में लगे सेंसर मिट्टी और मौसम की जानकारी लेते हैं। प्रणाली इस डेटा को समझकर आपकी भाषा में सरल सलाह देती है।",
     whatText2:
       "इसके लिए किसी तकनीकी जानकारी की आवश्यकता नहीं है। सलाह छोटे वाक्यों और स्पष्ट रंगों में दिखाई जाती है — हरा अर्थात ठीक, पीला अर्थात सावधान, लाल अर्थात आज ही काम करें।",
-    whoTitle: "कौन उपयोग कर सकता है?",
-    who: [
-      {
-        title: "किसान",
-        text: "पानी, खाद, फसल और मौसम की प्रतिदिन सलाह लेने के लिए।",
-      },
-      {
-        title: "कृषि अधिकारी",
-        text: "गाँव और ब्लॉक स्तर के खेत डेटा की निगरानी के लिए।",
-      },
-      {
-        title: "ग्राम स्तरीय कर्मचारी",
-        text: "उन किसानों की मदद के लिए जो पढ़ नहीं सकते या स्मार्टफोन नहीं चला सकते।",
-      },
+    visionTitle: "हमारा दृष्टिकोण",
+    visionText:
+      "हर भारतीय किसान को सटीक, सरल और किफायती एआई सलाह उपलब्ध कराना, ताकि खेती अधिक लाभदायक और टिकाऊ बने।",
+    missionTitle: "हमारा लक्ष्य",
+    missionText:
+      "एआई और आईओटी से एक कम लागत वाली, आसान प्रणाली बनाना जो हर गाँव के सामान्य मोबाइल फोन पर और किसान की अपनी भाषा में काम करे।",
+    objectivesTitle: "हमारे उद्देश्य",
+    objectives: [
+      "प्रतिदिन सिंचाई की सलाह देना",
+      "सबसे अच्छी फसल और उर्वरक सुझाना",
+      "फसल के रोगों की जल्दी पहचान करना",
+      "मौसम और फसल उपज का पूर्वानुमान देना",
+      "पानी और लागत में कमी करना",
     ],
-    benefitsTitle: "लाभ",
+    whyTitle: "कृषि में एआई क्यों?",
+    whyText:
+      "खेती में बड़ी मात्रा में मिट्टी, मौसम और फसल डेटा उत्पन्न होता है। एआई इस डेटा को तेज़ी से समझकर किसान को सही समय पर सही सलाह देता है, जो हाथ से करना कठिन है।",
+    whyPoints: [
+      "बड़े मिट्टी और मौसम डेटा को तेज़ी से संसाधित करता है",
+      "क्षेत्र विशेष के अनुसार सटीक सलाह देता है",
+      "फोटो से रोग की जल्दी पहचान करता है",
+      "पानी बचाता है और लागत घटाता है",
+      "कम मेहनत में अधिक किसानों तक पहुँचता है",
+    ],
+    benefitsTitle: "किसानों को लाभ",
     benefits: [
       "फसल की अच्छी पैदावार",
       "पानी की कम खपत",
@@ -421,31 +532,64 @@ const hi = {
       "मौसम के अनुसार योजना",
       "खेती की लागत में कमी",
     ],
-    statsTitle: "पायलट एक नज़र में",
-    stats: [
-      { value: "12", label: "जिले शामिल" },
-      { value: "480", label: "गाँव जुड़े" },
-      { value: "26,500", label: "पंजीकृत किसान" },
-      { value: "1,120", label: "खेत सेंसर लगे" },
+    architectureTitle: "परियोजना संरचना",
+    architectureSub: "एग्रीनोवा कैसे काम करता है — खेत से किसान तक।",
+    architecture: [
+      {
+        title: "खेत आईओटी सेंसर",
+        text: "खेत में मिट्टी की नमी, तापमान और एनपीके सेंसर लगे होते हैं।",
+      },
+      {
+        title: "कनेक्टिविटी",
+        text: "डेटा जीएसएम/4जी मोबाइल नेटवर्क या गाँव वाई-फाई से भेजा जाता है।",
+      },
+      {
+        title: "एआई इंजन",
+        text: "सिंचाई, फसल, रोग और मौसम के क्लाउड आधारित मॉडल।",
+      },
+      {
+        title: "सलाह प्रणाली",
+        text: "एआई के परिणाम को सरल हिंदी और अंग्रेज़ी सलाह में बदलता है।",
+      },
+      {
+        title: "किसान इंटरफ़ेस",
+        text: "मोबाइल ऐप, एसएमएस, यूएसएसडी और हल्का वेब पोर्टल।",
+      },
+    ],
+    teamTitle: "हमारी टीम",
+    teamSub: "एग्रीनोवा का निर्माण करने वाले लोग।",
+    team: [
+      { name: "डॉ. ए. शर्मा", role: "परियोजना निदेशक" },
+      { name: "एस. वर्मा", role: "एआई/एमएल प्रमुख" },
+      { name: "आर. पटेल", role: "आईओटी सेंसर अभियंता" },
+      { name: "डॉ. एम. कौर", role: "कृषि विशेषज्ञ" },
+      { name: "वी. नायर", role: "मोबाइल ऐप डेवलपर" },
+      { name: "के. दास", role: "डेटा विश्लेषक" },
+    ],
+    whoTitle: "कौन उपयोग कर सकता है?",
+    who: [
+      { title: "किसान", text: "पानी, खाद, फसल और मौसम की प्रतिदिन सलाह लेने के लिए।" },
+      { title: "कृषि अधिकारी", text: "गाँव और ब्लॉक स्तर के खेत डेटा की निगरानी के लिए।" },
+      { title: "ग्राम स्तरीय कर्मचारी", text: "उन किसानों की मदद के लिए जो पढ़ नहीं सकते।" },
     ],
   },
   services: {
     heading: "हमारी सेवाएँ",
-    sub: "सात सरल सेवाएँ। अधिक जानने के लिए कोई भी सेवा चुनें।",
+    sub: "आठ एआई संचालित सेवाएँ। अधिक जानने के लिए कोई भी सेवा चुनें।",
     open: "अधिक जानें",
     availability: "हिंदी और अंग्रेज़ी दोनों में उपलब्ध",
     items: {
       irrigation: {
-        title: "स्मार्ट सिंचाई सलाह",
+        title: "स्मार्ट सिंचाई",
         text: "बताता है कि कब सिंचाई करनी है और कितना पानी देना है।",
         detail:
-          "मिट्टी की नमी, तापमान और वर्षा के अनुमान से सही समय बताता है। इससे पानी और बिजली दोनों की बचत होती है।",
+          "मिट्टी की नमी, तापमान और वर्षा के अनुमान से सही सिंचाई समय बताता है। पानी और बिजली दोनों की बचत होती है।",
       },
       crop: {
         title: "फसल चयन सलाह",
         text: "आपकी मिट्टी और मौसम के अनुसार सबसे अच्छी फसल बताता है।",
         detail:
-          "मिट्टी का प्रकार, एन-पी-के मात्रा, पीएच और मौसम देखकर लाभदायक फसल सुझाता है।",
+          "मिट्टी का प्रकार, एनपीके मात्रा, पीएच और मौसम देखकर लाभदायक फसल सुझाता है।",
       },
       fertilizer: {
         title: "उर्वरक सलाह",
@@ -460,34 +604,37 @@ const hi = {
           "प्रभावित पत्ती की फोटो लें। प्रणाली रोग का नाम और कम लागत का उपचार बताती है।",
       },
       weather: {
-        title: "मौसम जानकारी",
+        title: "मौसम निगरानी",
         text: "स्थानीय मौसम, वर्षा और तापमान की जानकारी देता है।",
         detail:
-          "अगले 5 दिनों का ब्लॉक स्तरीय पूर्वानुमान, तेज़ वर्षा, ओलावृष्टि और लू की चेतावनी के साथ।",
+          "अगले 5 दिनों का ब्लॉक स्तरीय पूर्वानुमान, भारी वर्षा, ओलावृष्टि और लू की चेतावनी के साथ।",
       },
       yield: {
         title: "उपज अनुमान",
         text: "अनुमान बताता है कि फसल से कितना उत्पादन मिलेगा।",
-        detail:
-          "कटाई से पहले भंडारण, ढुलाई और बिक्री की योजना बनाने में सहायक।",
+        detail: "कटाई से पहले भंडारण, ढुलाई और बिक्री की योजना बनाने में सहायक।",
       },
-      helpdesk: {
-        title: "किसान सहायता केंद्र",
-        text: "खेती के सवालों के लिए सरल एआई सहायक।",
+      chatbot: {
+        title: "एआई चैटबॉट",
+        text: "खेती के सवालों का तुरंत उत्तर देने वाला एआई सहायक।",
+        detail: "प्रश्न लिखकर या बोलकर पूछें। उत्तर सरल हिंदी या अंग्रेज़ी में मिलेगा।",
+      },
+      water: {
+        title: "जल उपयोग विश्लेषण",
+        text: "पानी के उपयोग की निगरानी और बचत में मदद।",
         detail:
-          "प्रश्न लिखकर या बोलकर पूछें। उत्तर सरल हिंदी या अंग्रेज़ी में मिलेगा।",
+          "बताता है कि सिंचाई में कितना पानी लगा, कहाँ बचत संभव है, और पानी टैंक का स्तर।",
       },
     },
   },
   dashboard: {
-    heading: "खेत डैशबोर्ड",
+    heading: "आईओटी खेत डैशबोर्ड",
     sub: "आपके खेत में लगे सेंसर से प्राप्त वर्तमान जानकारी।",
     stateLabel: "राज्य",
     districtLabel: "जिला",
     villageLabel: "गाँव",
     updated: "अंतिम बार अपडेट",
     refresh: "जानकारी ताज़ा करें",
-    refreshing: "ताज़ा हो रहा है…",
     legend: "रंगों का अर्थ",
     legendOk: "हरा — ठीक है",
     legendWarn: "पीला — सावधान",
@@ -495,6 +642,10 @@ const hi = {
     pumpOn: "पंप चालू करें",
     pumpOff: "पंप बंद करें",
     pumpNote: "पंप को एसएमएस से भी चलाया जा सकता है: 51969 पर PUMP ON भेजें।",
+    tankLabel: "पानी टैंक स्तर",
+    trendTitle: "मिट्टी की नमी (7 दिन)",
+    npkTitle: "एन-पी-के तुलना",
+    trendDays: ["सोम", "मंगल", "बुध", "गुरु", "शुक्र", "शनि", "रवि"],
     sensors: {
       moisture: { label: "मिट्टी में नमी", note: "आवश्यक स्तर से कम है" },
       temperature: { label: "तापमान", note: "मौसम के अनुसार सामान्य" },
@@ -505,6 +656,7 @@ const hi = {
       potassium: { label: "पोटैशियम (K)", note: "पर्याप्त" },
       rain: { label: "वर्षा की संभावना", note: "6 घंटे में वर्षा संभव" },
       pump: { label: "पंप की स्थिति", note: "मोटर बंद है" },
+      tank: { label: "पानी टैंक स्तर", note: "स्तर कम है — सिंचाई से पहले भरें" },
     },
     status: {
       ok: "ठीक",
@@ -512,57 +664,60 @@ const hi = {
       bad: "कार्रवाई करें",
       on: "चालू",
       off: "बंद",
+      full: "भरा हुआ",
+      low: "कम",
     },
   },
   alerts: {
-    heading: "चेतावनी एवं सलाह",
-    sub: "सूची को ऊपर से नीचे पढ़ें। लाल रंग वाले काम आज ही करें।",
+    heading: "एआई सलाह एवं चेतावनी",
+    sub: "सूची को ऊपर से नीचे पढ़ें। गंभीर वाले काम आज ही करें।",
     filterAll: "सभी",
-    filterBad: "कार्रवाई करें",
-    filterWarn: "सावधान",
-    filterOk: "ठीक",
+    filterCritical: "गंभीर",
+    filterWarning: "चेतावनी",
+    filterInfo: "सूचना",
     action: "क्या करें",
     time: "प्राप्त समय",
+    priority: "प्राथमिकता",
     none: "इस श्रेणी में कोई चेतावनी नहीं है।",
     printBtn: "यह सूची प्रिंट करें",
     items: {
+      nitrogen: {
+        title: "मिट्टी में नाइट्रोजन की कमी पाई गई",
+        action: "अगली सिंचाई के बाद प्रति एकड़ 20 किलो यूरिया डालें। सूखी मिट्टी में न डालें।",
+      },
+      tank: {
+        title: "पानी टैंक का स्तर कम है",
+        action: "अगली सिंचाई से पहले पानी टैंक भर लें।",
+      },
       irrigation: {
         title: "कल सुबह सिंचाई की आवश्यकता है",
-        action:
-          "गेहूँ के खेत में सुबह 6 से 8 बजे के बीच पानी दें। लगभग 25 मिमी पानी पर्याप्त है।",
+        action: "गेहूँ के खेत में सुबह 6 से 8 बजे के बीच पानी दें। लगभग 25 मिमी पर्याप्त है।",
       },
-      nitrogen: {
-        title: "मिट्टी में नाइट्रोजन की मात्रा कम है",
-        action:
-          "अगली सिंचाई के बाद प्रति एकड़ 20 किलो यूरिया डालें। सूखी मिट्टी में न डालें।",
+      pest: {
+        title: "गेहूँ में कीट का खतरा मध्यम है",
+        action: "प्रतिदिन खेत का निरीक्षण करें। आवश्यकता हो तो सलाह अनुसार कीटनाशक लगाएँ।",
       },
       rain: {
         title: "अगले 6 घंटे में वर्षा की संभावना है",
-        action: "आज कीटनाशक का छिड़काव न करें। कटी हुई फसल को ढककर रखें।",
-      },
-      crop: {
-        title: "इस मिट्टी के लिए गेहूँ की फसल उपयुक्त है",
-        action:
-          "एचडी-2967 या एचडी-3086 किस्म बोएँ। दोनों इस मिट्टी और मौसम के अनुकूल हैं।",
+        action: "आज कीटनाशक का छिड़काव न करें। कटी फसल को ढककर रखें।",
       },
       fertilizer: {
         title: "सिंचाई के बाद उर्वरक डालें",
-        action:
-          "गीली मिट्टी में खाद अधिक असर करती है। पानी देने के 24 घंटे बाद डालें।",
-      },
-      disease: {
-        title: "गेहूँ में पीला रतुआ रोग का खतरा बढ़ रहा है",
-        action:
-          "हर सुबह पत्तियाँ देखें। पीला चूर्ण दिखे तो कृषि विज्ञान केंद्र से संपर्क करें।",
+        action: "गीली मिट्टी में खाद अधिक असर करती है। पानी के 24 घंटे बाद डालें।",
       },
     },
     timeAgo: {
-      irrigation: "आज, प्रातः 6:10",
       nitrogen: "आज, प्रातः 5:45",
+      tank: "आज, प्रातः 7:35",
+      irrigation: "आज, प्रातः 6:10",
+      pest: "आज, प्रातः 8:05",
       rain: "आज, प्रातः 7:20",
-      crop: "कल, सायं 4:30",
       fertilizer: "कल, प्रातः 11:15",
-      disease: "आज, प्रातः 7:35",
+    },
+    priorities: {
+      critical: "गंभीर",
+      warning: "चेतावनी",
+      info: "सूचना",
     },
   },
   contact: {
@@ -595,25 +750,51 @@ const hi = {
     another: "दूसरा संदेश भेजें",
     officeTitle: "कार्यालय का पता",
     office: [
-      "एग्रीसेंस एआई परियोजना प्रकोष्ठ",
+      "एग्रीनोवा परियोजना प्रकोष्ठ",
       "कृषि भवन, डॉ. राजेंद्र प्रसाद रोड",
       "नई दिल्ली – 110001, भारत",
     ],
     emailTitle: "आधिकारिक ईमेल",
-    officialEmail: "support-agrisense[at]gov[dot]in",
+    officialEmail: "support-agrinova[at]gov[dot]in",
     phoneTitle: "हेल्पलाइन",
     phone: "1800-180-1551 (निःशुल्क)",
     hoursTitle: "कार्य समय",
     hours: "सोमवार से शनिवार, प्रातः 9:30 – सायं 6:00",
+    mapsTitle: "हमें खोजें",
+    mapsText: "कृषि भवन, नई दिल्ली (सरकारी कार्यालय नक्शा)।",
+    faqTitle: "अक्सर पूछे जाने वाले प्रश्न",
+    faqSub: "सामान्य प्रश्नों के सरल उत्तर।",
+    faqs: [
+      {
+        q: "क्या एग्रीनोवा उपयोग करने के लिए शुल्क देना पड़ता है?",
+        a: "नहीं। यह पायलट प्रणाली निःशुल्क है और सरकारी सहायता से चलाई जा रही है।",
+      },
+      {
+        q: "क्या यह सामान्य मोबाइल फोन पर चलती है?",
+        a: "हाँ। यह एसएमएस, यूएसएसडी और हल्के ऐप पर किसी भी फोन में चलती है।",
+      },
+      {
+        q: "सलाह किस भाषा में मिलती है?",
+        a: "सलाह अंग्रेज़ी और हिंदी दोनों में उपलब्ध है।",
+      },
+      {
+        q: "मुझे सेंसर कैसे मिलेंगे?",
+        a: "पायलट गाँवों में सेंसर निःशुल्क लगाए जाते हैं। अपने ब्लॉक कृषि अधिकारी से संपर्क करें।",
+      },
+      {
+        q: "मेरा गाँव कब जुड़ेगा?",
+        a: "रोल-आउट कार्यक्रम आपके ग्राम स्तरीय कार्यालय द्वारा साझा किया जाएगा।",
+      },
+    ],
   },
   help: {
     button: "सहायता",
     title: "इस पोर्टल का उपयोग कैसे करें",
     steps: [
       "ऊपर अपनी भाषा चुनें: English या हिंदी।",
-      "मेन्यू के बड़े बटनों से अलग-अलग भाग देखें।",
+      "मेन्यू के बड़े बटनों से अलग-अलग पृष्ठ देखें।",
       "अपने खेत की मिट्टी, पानी और मौसम की जानकारी के लिए डैशबोर्ड खोलें।",
-      "आज क्या करना है, यह जानने के लिए चेतावनी भाग देखें। लाल का अर्थ है आज ही करें।",
+      "आज क्या करना है, यह जानने के लिए चेतावनी पृष्ठ देखें। लाल का अर्थ है आज ही करें।",
       "यदि किसी व्यक्ति से बात करनी हो तो नीचे दिए निःशुल्क नंबर पर कॉल करें।",
     ],
     callTitle: "फोन पर सहायता चाहिए?",
@@ -625,7 +806,7 @@ const hi = {
     ministry: "कृषि एवं किसान कल्याण मंत्रालय",
     govt: "भारत सरकार",
     owned:
-      "इस पोर्टल की सामग्री एग्रीसेंस एआई परियोजना प्रकोष्ठ, कृषि एवं किसान कल्याण मंत्रालय, भारत सरकार द्वारा संचालित है।",
+      "इस पोर्टल की सामग्री एग्रीनोवा परियोजना प्रकोष्ठ, कृषि एवं किसान कल्याण मंत्रालय, भारत सरकार द्वारा संचालित है।",
     disclaimer:
       "अस्वीकरण: यह पोर्टल स्मार्ट इंडिया हैकाथॉन का पायलट प्रदर्शन है। यहाँ दिखाया गया डेटा नमूना डेटा है, सरकारी अभिलेख नहीं।",
     linksTitle: "महत्वपूर्ण लिंक",

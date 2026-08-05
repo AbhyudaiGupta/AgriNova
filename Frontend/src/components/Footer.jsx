@@ -29,7 +29,7 @@ export default function Footer({ t, onHelp }) {
           <ul className="space-y-2 text-sm">
             {t.footer.links.map((l) => (
               <li key={l}>
-                <a href="#accessibility" className={linkCls}>
+                <a href="#/contact" className={linkCls}>
                   {l}
                 </a>
               </li>
@@ -49,13 +49,13 @@ export default function Footer({ t, onHelp }) {
           <ul className="space-y-2 text-sm">
             {serviceList.slice(0, 5).map((s) => (
               <li key={s.id}>
-                <a href="#services" className={linkCls}>
+                <a href="#/services" className={linkCls}>
                   {t.services.items[s.id].title}
                 </a>
               </li>
             ))}
             <li>
-              <a href="#contact" className={linkCls}>
+              <a href="#/contact" className={linkCls}>
                 {t.footer.contactTitle}
               </a>
             </li>

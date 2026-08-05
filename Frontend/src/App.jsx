@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { dict } from "@/lib/i18n";
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Services from "@/components/Services";
-import Dashboard from "@/components/Dashboard";
-import Alerts from "@/components/Alerts";
-import Contact from "@/components/Contact";
+import Header, { NAV } from "@/components/Header";
 import Footer from "@/components/Footer";
 import HelpDialog from "@/components/HelpDialog";
+import Home from "@/pages/Home";
+import About from "@/pages/About";
+import Services from "@/pages/Services";
+import Dashboard from "@/pages/Dashboard";
+import Alerts from "@/pages/Alerts";
+import Contact from "@/pages/Contact";
 
 const FONT_SIZES = ["15px", "17px", "19px", "21px"];
 
@@ -21,13 +21,30 @@ function readStored(key, fallback) {
   }
 }
 
+// Map a URL hash to a page route. Falls back to home.
+function parseRoute() {
+  const h = window.location.hash.replace(/^#\/?/, "").toLowerCase();
+  const known = NAV.map((n) => n.id);
+  return known.includes(h) ? h : "home";
+}
+
 export default function App() {
   const [lang, setLang] = useState(() => readStored("agri.lang", "en"));
   const [fontStep, setFontStep] = useState(() => readStored("agri.font", 0));
   const [contrast, setContrast] = useState(() => readStored("agri.hc", false));
   const [helpOpen, setHelpOpen] = useState(false);
+  const [route, setRoute] = useState(parseRoute);
 
   const t = dict[lang];
+
+  useEffect(() => {
+    const onHash = () => {
+      setRoute(parseRoute());
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    };
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -43,6 +60,15 @@ export default function App() {
     }
   }, [lang, fontStep, contrast]);
 
+  const pages = {
+    home: <Home t={t} />,
+    about: <About t={t} />,
+    services: <Services t={t} />,
+    dashboard: <Dashboard t={t} lang={lang} />,
+    alerts: <Alerts t={t} />,
+    contact: <Contact t={t} />,
+  };
+
   return (
     <div className="min-h-screen bg-page text-ink">
       <Header
@@ -54,15 +80,11 @@ export default function App() {
         contrast={contrast}
         setContrast={setContrast}
         onHelp={() => setHelpOpen(true)}
+        active={route}
       />
 
-      <main id="main">
-        <Hero t={t} />
-        <About t={t} />
-        <Services t={t} />
-        <Dashboard t={t} lang={lang} />
-        <Alerts t={t} />
-        <Contact t={t} />
+      <main id="main" className="fade-in">
+        {pages[route]}
       </main>
 
       <Footer t={t} onHelp={() => setHelpOpen(true)} />

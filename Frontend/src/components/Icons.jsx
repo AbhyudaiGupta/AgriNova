@@ -146,6 +146,41 @@ export function EmblemIcon({ className }) {
   );
 }
 
+export function TankIcon({ className }) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M4 8v3a8 8 0 0 0 16 0V8" />
+      <path d="M2 8h20" />
+      <path d="M8 11.5h8" />
+      <path d="M10 3h4" />
+    </svg>
+  );
+}
+
+export function FanIcon({ className }) {
+  return (
+    <svg {...base} className={className}>
+      <circle cx="12" cy="12" r="2.5" />
+      <path d="M12 9.5C15 8 16 4.5 13 3c-2.5 1-3 4 0 5.5Z" />
+      <path d="M14.5 12c1.5-3 5-4 6.5-1-1 2.5-4 3-5.5 0Z" />
+      <path d="M12 14.5C9 16 8 19.5 11 21c2.5-1 3-4 0-5.5Z" />
+      <path d="M9.5 12C8 9 4.5 8 3 11c1 2.5 4 3 5.5 0Z" />
+    </svg>
+  );
+}
+
+export function ScaleIcon({ className }) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M12 3v18" />
+      <path d="M5 21h14" />
+      <path d="M5 7h14" />
+      <path d="M5 7l-2 6a3 3 0 0 0 4 0L5 7Z" />
+      <path d="M19 7l-2 6a3 3 0 0 0 4 0l-2-6Z" />
+    </svg>
+  );
+}
+
 export const serviceIcons = {
   irrigation: DropletIcon,
   crop: SeedlingIcon,
@@ -153,5 +188,15 @@ export const serviceIcons = {
   disease: LeafBugIcon,
   weather: CloudSunIcon,
   yield: ChartIcon,
-  helpdesk: ChatIcon,
+  chatbot: ChatIcon,
+  water: TankIcon,
+};
+
+export const alertIcons = {
+  nitrogen: FlaskIcon,
+  tank: TankIcon,
+  irrigation: DropletIcon,
+  pest: LeafBugIcon,
+  rain: CloudSunIcon,
+  fertilizer: FlaskIcon,
 };

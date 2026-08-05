@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { EmblemIcon } from "@/components/Icons";
 
-const NAV = [
+// Navigation routes shared by header and router.
+export const NAV = [
   { id: "home", key: "home" },
   { id: "about", key: "about" },
   { id: "services", key: "services" },
@@ -19,24 +20,9 @@ export default function Header({
   contrast,
   setContrast,
   onHelp,
+  active,
 }) {
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState("home");
-
-  useEffect(() => {
-    const ids = NAV.map((n) => n.id);
-    const onScroll = () => {
-      let current = ids[0];
-      for (const id of ids) {
-        const el = document.getElementById(id);
-        if (el && el.getBoundingClientRect().top <= 140) current = id;
-      }
-      setActive(current);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const stripBtn =
     "px-2 py-1 border border-white/40 text-white hover:bg-white hover:text-strip focus:bg-white focus:text-strip";
@@ -65,7 +51,7 @@ export default function Header({
           </p>
 
           <div className="flex flex-wrap items-center gap-2">
-            <a href="#accessibility" className="underline underline-offset-2 hover:no-underline">
+            <a href="#/contact" className="underline underline-offset-2 hover:no-underline">
               {t.strip.screenReader}
             </a>
 
@@ -98,7 +84,7 @@ export default function Header({
 
       <div className="sticky top-0 z-40 border-b-4 border-brand bg-page">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-3 py-3">
-          <a href="#home" className="flex items-center gap-3 text-ink no-underline">
+          <a href="#/home" className="flex items-center gap-3 text-ink no-underline">
             <EmblemIcon className="h-11 w-11 shrink-0 text-brand" />
             <span className="leading-tight">
               <span className="block text-xl font-bold tracking-tight text-brand sm:text-2xl">
@@ -173,12 +159,12 @@ export default function Header({
               return (
                 <li key={item.id} className="border-b border-white/20 md:border-b-0 md:border-r md:border-white/25">
                   <a
-                    href={`#${item.id}`}
+                    href={`#/${item.id}`}
                     onClick={() => setOpen(false)}
                     aria-current={isActive ? "page" : undefined}
                     className={`block px-5 py-3 text-base font-semibold no-underline md:text-[0.95rem] ${
                       isActive
-                        ? "bg-page text-brand underline underline-offset-4 md:bg-white/15 md:text-white"
+                        ? "bg-white text-brand underline underline-offset-4 md:bg-white md:text-brand"
                         : "text-white hover:bg-white/15"
                     }`}
                   >

@@ -4,15 +4,6 @@ export const locations = {
   villages: ["Barhi Kalan", "Rampur", "Sultanpur", "Kotwa"],
 };
 
-export const alertList = [
-  { id: "nitrogen", level: "bad" },
-  { id: "irrigation", level: "warn" },
-  { id: "rain", level: "warn" },
-  { id: "disease", level: "bad" },
-  { id: "crop", level: "ok" },
-  { id: "fertilizer", level: "ok" },
-];
-
 export const serviceList = [
   { id: "irrigation", code: "S-01" },
   { id: "crop", code: "S-02" },
@@ -20,7 +11,28 @@ export const serviceList = [
   { id: "disease", code: "S-04" },
   { id: "weather", code: "S-05" },
   { id: "yield", code: "S-06" },
-  { id: "helpdesk", code: "S-07" },
+  { id: "chatbot", code: "S-07" },
+  { id: "water", code: "S-08" },
+];
+
+// 4 services highlighted on the home page
+export const homeServices = ["irrigation", "crop", "disease", "weather"];
+
+export const alertList = [
+  { id: "nitrogen", priority: "critical" },
+  { id: "tank", priority: "critical" },
+  { id: "irrigation", priority: "warning" },
+  { id: "pest", priority: "warning" },
+  { id: "rain", priority: "info" },
+  { id: "fertilizer", priority: "info" },
+];
+
+// Dummy chart data
+export const moistureTrend = [22, 25, 24, 28, 27, 30, 28];
+export const npkData = [
+  { label: "N", value: 142, color: "#b45309" },
+  { label: "P", value: 46, color: "#0b4f9e" },
+  { label: "K", value: 188, color: "#14532d" },
 ];
 
 const round = (n, d = 0) => {
@@ -40,6 +52,7 @@ export function readSensors(shift = 0) {
   const p = j(46, 4);
   const k = j(188, 9);
   const rain = j(72, 8);
+  const tank = j(42, 6);
 
   return [
     {
@@ -98,6 +111,17 @@ export function readSensors(shift = 0) {
       level: rain > 60 ? "warn" : "ok",
       pct: rain,
     },
+    {
+      id: "tank",
+      value: String(tank),
+      unit: "%",
+      level: tank < 50 ? "bad" : tank < 70 ? "warn" : "ok",
+      pct: tank,
+    },
     { id: "pump", value: "", unit: "", level: "ok", pct: 0 },
   ];
+}
+
+export function getSensor(id, shift = 0) {
+  return readSensors(shift).find((s) => s.id === id);
 }

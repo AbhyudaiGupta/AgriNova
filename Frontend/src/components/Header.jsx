@@ -2,14 +2,23 @@ import { useState } from "react";
 import { EmblemIcon } from "@/components/Icons";
 
 // Navigation routes shared by header and router.
+// `extra: true` means the label comes from t.navExtra instead of t.nav.
 export const NAV = [
   { id: "home", key: "home" },
   { id: "about", key: "about" },
   { id: "services", key: "services" },
+  { id: "crop-advisor", key: "advisor", extra: true },
   { id: "dashboard", key: "dashboard" },
+  { id: "market", key: "market", extra: true },
   { id: "alerts", key: "alerts" },
   { id: "contact", key: "contact" },
 ];
+
+// The Cultivation Guide is reachable from Advisor/Guide links, not the main bar.
+export const ROUTES = [...NAV.map((n) => n.id), "guide"];
+
+export const navLabel = (t, item) =>
+  item.extra ? t.navExtra[item.key] : t.nav[item.key];
 
 export default function Header({
   t,
@@ -153,7 +162,7 @@ export default function Header({
           aria-label={t.nav.menu}
           className={`${open ? "block" : "hidden"} border-t border-line bg-brand md:block`}
         >
-          <ul className="mx-auto flex max-w-6xl flex-col md:flex-row">
+          <ul className="mx-auto flex max-w-6xl flex-col md:flex-row md:flex-wrap">
             {NAV.map((item) => {
               const isActive = active === item.id;
               return (
@@ -162,13 +171,13 @@ export default function Header({
                     href={`#/${item.id}`}
                     onClick={() => setOpen(false)}
                     aria-current={isActive ? "page" : undefined}
-                    className={`block px-5 py-3 text-base font-semibold no-underline md:text-[0.95rem] ${
+                    className={`block px-5 py-3 text-base font-semibold no-underline md:px-4 md:text-[0.9rem] lg:px-5 ${
                       isActive
                         ? "bg-white text-brand underline underline-offset-4 md:bg-white md:text-brand"
                         : "text-white hover:bg-white/15"
                     }`}
                   >
-                    {t.nav[item.key]}
+                    {navLabel(t, item)}
                   </a>
                 </li>
               );

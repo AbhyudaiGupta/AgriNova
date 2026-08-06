@@ -29,6 +29,9 @@ export const alertList = [
 
 // Dummy chart data
 export const moistureTrend = [22, 25, 24, 28, 27, 30, 28];
+// Litres of irrigation water used per week (dashboard analytics)
+export const waterUse = [2800, 3100, 2450, 3300, 2900, 2600, 3050];
+
 export const npkData = [
   { label: "N", value: 142, color: "#b45309" },
   { label: "P", value: 46, color: "#0b4f9e" },

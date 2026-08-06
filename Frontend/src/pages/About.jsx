@@ -111,10 +111,7 @@ export default function About({ t }) {
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center border-2 border-brand bg-brand text-lg font-bold text-white">
                   {m.name.charAt(0)}
                 </span>
-                <div>
-                  <p className="text-base font-bold text-ink">{m.name}</p>
-                  <p className="text-sm text-inksoft">{m.role}</p>
-                </div>
+                <p className="text-base font-bold text-ink">{m.name}</p>
               </li>
             ))}
           </ul>

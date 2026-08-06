@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
-import { locations, readSensors, moistureTrend, npkData } from "@/lib/data";
+import { locations, readSensors, moistureTrend, npkData, waterUse } from "@/lib/data";
+import { L, inr, mandiPrices } from "@/lib/crops";
 import SectionHeading from "@/components/SectionHeading";
 import StatusPill, { levelBar } from "@/components/StatusPill";
 import { ClockIcon, TankIcon, FanIcon } from "@/components/Icons";
@@ -242,10 +243,131 @@ export default function Dashboard({ t, lang }) {
           })}
         </ul>
 
+        {/* GROUNDWATER + SCORES */}
+        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="border-2 border-line bg-surface p-4">
+            <div className="flex items-start justify-between gap-2">
+              <p className="text-base font-bold text-ink">{t.dash.groundLevel}</p>
+              <StatusPill level="warn" label={statusText("warn")} />
+            </div>
+            <p className="mt-2 text-3xl font-bold text-brand">18.4<span className="ml-1 text-lg font-semibold text-inksoft">m</span></p>
+            <div className="mt-3 h-3 w-full border border-linestrong bg-page">
+              <div className="h-full bg-warn" style={{ width: "62%" }} />
+            </div>
+            <p className="mt-2 text-base text-inksoft">{t.dash.groundNote}</p>
+          </div>
+
+          <div className="border-2 border-line bg-surface p-4">
+            <div className="flex items-start justify-between gap-2">
+              <p className="text-base font-bold text-ink">{t.dash.groundQuality}</p>
+              <StatusPill level="warn" label={t.dash.quality.medium} />
+            </div>
+            <p className="mt-2 text-3xl font-bold text-brand">1.2<span className="ml-1 text-lg font-semibold text-inksoft">dS/m</span></p>
+            <div className="mt-3 h-3 w-full border border-linestrong bg-page">
+              <div className="h-full bg-warn" style={{ width: "48%" }} />
+            </div>
+            <p className="mt-2 text-base text-inksoft">{t.dash.qualityNote}</p>
+          </div>
+
+          <div className="border-2 border-line bg-surface p-4">
+            <div className="flex items-start justify-between gap-2">
+              <p className="text-base font-bold text-ink">{t.dash.soilScore}</p>
+              <StatusPill level="warn" label="78/100" />
+            </div>
+            <p className="mt-2 text-3xl font-bold text-brand">78<span className="ml-1 text-lg font-semibold text-inksoft">/100</span></p>
+            <div className="mt-3 h-3 w-full border border-linestrong bg-page">
+              <div className="h-full bg-warn" style={{ width: "78%" }} />
+            </div>
+            <p className="mt-2 text-base text-inksoft">{t.dash.soilNote}</p>
+          </div>
+
+          <div className="border-2 border-line bg-surface p-4">
+            <div className="flex items-start justify-between gap-2">
+              <p className="text-base font-bold text-ink">{t.dash.aiScore}</p>
+              <StatusPill level="ok" label="92%" />
+            </div>
+            <p className="mt-2 text-3xl font-bold text-brand">92<span className="ml-1 text-lg font-semibold text-inksoft">%</span></p>
+            <div className="mt-3 h-3 w-full border border-linestrong bg-page">
+              <div className="h-full bg-ok" style={{ width: "92%" }} />
+            </div>
+            <p className="mt-2 text-base text-inksoft">{t.dash.aiNote}</p>
+          </div>
+        </div>
+
+        {/* PROFIT PREDICTION + MARKET WIDGET */}
+        <div className="mt-4 grid gap-3 lg:grid-cols-2">
+          <div className="border-2 border-brand bg-brandsoft p-4">
+            <h3 className="text-base font-bold text-brand">{t.dash.profitTitle}</h3>
+            <p className="mt-1 text-sm text-inksoft">{t.dash.profitNote}</p>
+            <p className="mt-3 text-sm font-bold text-ink">{t.dash.profitValue}</p>
+            <p className="text-4xl font-bold text-brand">{inr(25550)}</p>
+            <dl className="mt-3 grid grid-cols-2 gap-2 text-base">
+              <div className="border border-line bg-page px-3 py-2">
+                <dt className="text-sm text-inksoft">{t.report.totalCost}</dt>
+                <dd className="font-bold text-ink">{inr(24500)}</dd>
+              </div>
+              <div className="border border-line bg-page px-3 py-2">
+                <dt className="text-sm text-inksoft">{t.report.revenue}</dt>
+                <dd className="font-bold text-ink">{inr(50050)}</dd>
+              </div>
+            </dl>
+            <a href="#/crop-advisor" className="mt-3 inline-block border-2 border-brand bg-brand px-5 py-2.5 text-base font-bold text-white no-underline hover:bg-branddark">
+              {t.navExtra.advisor} →
+            </a>
+          </div>
+
+          <div className="border-2 border-line bg-surface p-4">
+            <h3 className="text-base font-bold text-brand">{t.dash.marketWidget}</h3>
+            <p className="mt-1 text-sm text-inksoft">{t.dash.marketNote}</p>
+            <ul className="mt-3 divide-y divide-line border-2 border-line bg-page">
+              {mandiPrices.slice(0, 4).map((m) => {
+                const diff = m.today - m.yest;
+                const up = diff > 0;
+                return (
+                  <li key={L(m.crop, "en")} className="flex items-center justify-between gap-2 px-3 py-2">
+                    <span className="text-base font-semibold text-ink">{L(m.crop, lang)}</span>
+                    <span className="flex items-center gap-2">
+                      <span className="text-base font-bold text-brand">{inr(m.today)}</span>
+                      <span className={`border-2 px-1.5 text-sm font-bold ${diff === 0 ? "border-line bg-surface text-inksoft" : up ? "border-ok bg-okbg text-ok" : "border-bad bg-badbg text-bad"}`}>
+                        <span aria-hidden="true">{diff === 0 ? "—" : up ? "▲" : "▼"}</span> {Math.abs(diff)}
+                      </span>
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+            <a href="#/market" className="mt-3 inline-block border-2 border-brand bg-page px-5 py-2.5 text-base font-bold text-brand no-underline hover:bg-brandsoft">
+              {t.dash.viewMarket}
+            </a>
+          </div>
+        </div>
+
         {/* CHARTS */}
         <div className="mt-4 grid gap-4 lg:grid-cols-2">
           <BarChart title={t.dashboard.npkTitle} data={npkData} max={320} />
           <LineChart title={t.dashboard.trendTitle} points={moistureTrend} labels={t.dashboard.trendDays} />
+        </div>
+
+        {/* WATER CONSUMPTION ANALYTICS */}
+        <div className="mt-4 border-2 border-line bg-surface p-4">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <h3 className="text-base font-bold text-ink">{t.dash.waterTitle}</h3>
+              <p className="text-sm text-inksoft">{t.dash.waterNote}</p>
+            </div>
+            <StatusPill level="ok" label={`${t.dash.waterSaved}: 18%`} />
+          </div>
+          <div className="mt-3 flex h-40 items-end gap-2">
+            {waterUse.map((v, i) => (
+              <div key={i} className="flex flex-1 flex-col items-center">
+                <span className="text-xs font-bold text-ink">{v}</span>
+                <div className="mt-1 h-28 w-full border border-linestrong bg-page">
+                  <div className="w-full bg-link" style={{ height: `${(v / 3600) * 100}%` }} />
+                </div>
+                <span className="mt-1 text-xs text-inksoft">{t.dashboard.trendDays[i]}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

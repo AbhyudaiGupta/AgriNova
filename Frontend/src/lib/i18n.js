@@ -147,10 +147,10 @@ const en = {
     teamTitle: "Our Team",
     teamSub: "The people building AgriNova.",
     team: [
-      { name: "Paras"},
-      { name: "Rudra"},
-      { name: "Manav"},
-      { name: "Abhyudai"},
+      { name: "Paras" },
+      { name: "Manav" },
+      { name: "Abhyudai" },
+      { name: "Rudra" },
       { name: "Jasleen" },
       { name: "Kanik" },
     ],
@@ -559,12 +559,12 @@ const hi = {
     teamTitle: "हमारी टीम",
     teamSub: "एग्रीनोवा का निर्माण करने वाले लोग।",
     team: [
-      { name: "डॉ. ए. शर्मा", role: "परियोजना निदेशक" },
-      { name: "एस. वर्मा", role: "एआई/एमएल प्रमुख" },
-      { name: "आर. पटेल", role: "आईओटी सेंसर अभियंता" },
-      { name: "डॉ. एम. कौर", role: "कृषि विशेषज्ञ" },
-      { name: "वी. नायर", role: "मोबाइल ऐप डेवलपर" },
-      { name: "के. दास", role: "डेटा विश्लेषक" },
+      { name: "पारस" },
+      { name: "मानव" },
+      { name: "अभ्युदय" },
+      { name: "रुद्र" },
+      { name: "जसलीन" },
+      { name: "कनिक" },
     ],
     whoTitle: "कौन उपयोग कर सकता है?",
     who: [
@@ -826,4 +826,9 @@ const hi = {
   },
 };
 
-export const dict = { en, hi };
+import { extraEn, extraHi } from "./i18nExtra";
+
+export const dict = {
+  en: { ...en, ...extraEn },
+  hi: { ...hi, ...extraHi },
+};

@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
 import { dict } from "@/lib/i18n";
-import Header, { NAV } from "@/components/Header";
+import Header, { ROUTES } from "@/components/Header";
 import Footer from "@/components/Footer";
 import HelpDialog from "@/components/HelpDialog";
+import Chatbot from "@/components/Chatbot";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Services from "@/pages/Services";
+import CropAdvisor from "@/pages/CropAdvisor";
 import Dashboard from "@/pages/Dashboard";
+import Market from "@/pages/Market";
 import Alerts from "@/pages/Alerts";
 import Contact from "@/pages/Contact";
+import Guide from "@/pages/Guide";
 
 const FONT_SIZES = ["15px", "17px", "19px", "21px"];
 
@@ -21,17 +25,16 @@ function readStored(key, fallback) {
   }
 }
 
-// Map a URL hash to a page route. Falls back to home.
 function parseRoute() {
   const h = window.location.hash.replace(/^#\/?/, "").toLowerCase();
-  const known = NAV.map((n) => n.id);
-  return known.includes(h) ? h : "home";
+  return ROUTES.includes(h) ? h : "home";
 }
 
 export default function App() {
   const [lang, setLang] = useState(() => readStored("agri.lang", "en"));
   const [fontStep, setFontStep] = useState(() => readStored("agri.font", 0));
   const [contrast, setContrast] = useState(() => readStored("agri.hc", false));
+  const [selectedCrop, setSelectedCrop] = useState(() => readStored("agri.crop", null));
   const [helpOpen, setHelpOpen] = useState(false);
   const [route, setRoute] = useState(parseRoute);
 
@@ -55,19 +58,28 @@ export default function App() {
       localStorage.setItem("agri.lang", JSON.stringify(lang));
       localStorage.setItem("agri.font", JSON.stringify(fontStep));
       localStorage.setItem("agri.hc", JSON.stringify(contrast));
+      localStorage.setItem("agri.crop", JSON.stringify(selectedCrop));
     } catch {
       // storage may be blocked
     }
-  }, [lang, fontStep, contrast]);
+  }, [lang, fontStep, contrast, selectedCrop]);
 
   const pages = {
     home: <Home t={t} />,
     about: <About t={t} />,
     services: <Services t={t} />,
+    "crop-advisor": (
+      <CropAdvisor t={t} lang={lang} selectedCrop={selectedCrop} onSelectCrop={setSelectedCrop} />
+    ),
     dashboard: <Dashboard t={t} lang={lang} />,
+    market: <Market t={t} lang={lang} />,
     alerts: <Alerts t={t} />,
     contact: <Contact t={t} />,
+    guide: <Guide t={t} lang={lang} selectedCrop={selectedCrop} />,
   };
+
+  // The Guide is not in the main bar; highlight Crop Advisor while on it.
+  const activeNav = route === "guide" ? "crop-advisor" : route;
 
   return (
     <div className="min-h-screen bg-page text-ink">
@@ -80,7 +92,7 @@ export default function App() {
         contrast={contrast}
         setContrast={setContrast}
         onHelp={() => setHelpOpen(true)}
-        active={route}
+        active={activeNav}
       />
 
       <main id="main" className="fade-in">
@@ -90,6 +102,7 @@ export default function App() {
       <Footer t={t} onHelp={() => setHelpOpen(true)} />
 
       <HelpDialog t={t} open={helpOpen} onClose={() => setHelpOpen(false)} />
+      <Chatbot t={t} lang={lang} />
 
       <button
         type="button"

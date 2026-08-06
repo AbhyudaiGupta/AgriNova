@@ -153,7 +153,10 @@ export default function Home({ t }) {
           </h2>
           <p className="mx-auto mt-2 max-w-2xl text-base text-white/90">{t.home.ctaText}</p>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a href="#/services" className="border-2 border-white bg-white px-6 py-4 text-lg font-bold text-brand no-underline hover:bg-brandsoft">
+            <a href="#/crop-advisor" className="border-2 border-white bg-white px-6 py-4 text-lg font-bold text-brand no-underline hover:bg-brandsoft">
+              {t.navExtra.advisor}
+            </a>
+            <a href="#/services" className="border-2 border-white px-6 py-4 text-lg font-bold text-white no-underline hover:bg-white/15">
               {t.home.ctaServices}
             </a>
             <a href="#/dashboard" className="border-2 border-white px-6 py-4 text-lg font-bold text-white no-underline hover:bg-white/15">
